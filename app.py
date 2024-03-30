@@ -9,7 +9,7 @@ import requests_html as rq
 import anthropic
 
 # Set your Anthropic API key
-os.environ["ANTHROPIC_API_KEY"] = "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"
+os.environ["ANTHROPIC_API_KEY"] = "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"
 
 # Initialize the Anthropic client with the API key
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
