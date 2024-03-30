@@ -9,7 +9,7 @@ import anthropic
 from dotenv import load_dotenv
 
 # Load environment variables from key.env
-load_dotenv("key.env")
+load_dotenv("py.env")
 
 # Get the Anthropic API key from environment variables
 anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
