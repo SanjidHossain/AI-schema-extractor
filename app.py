@@ -7,9 +7,11 @@ from fake_useragent import UserAgent
 import requests_html as rq
 import anthropic
 from dotenv import load_dotenv
+from dotenv import dotenv_values
 
 # Load environment variables from key.env
-load_dotenv("py.env")
+# config = dotenv_values(".env")
+load_dotenv()
 
 # Get the Anthropic API key from environment variables
 anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
