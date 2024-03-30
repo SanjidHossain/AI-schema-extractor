@@ -12,7 +12,7 @@ def main():
 
     url = st.text_input("Enter Website URL:")
     schemas = st.text_input("Enter Schemas (comma-separated):").split(",")
-    anthropic_api_key = st.text_input("Enter your Anthropic API Key:", type="password")
+    anthropic_api_key = st.text_input("Enter your Anthropic(claude.AI) API Key:", type="password")
 
     # Initialize the Anthropic client with the API key
     client = anthropic.Anthropic(api_key=anthropic_api_key)
