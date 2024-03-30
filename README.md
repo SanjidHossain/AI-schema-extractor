@@ -23,10 +23,6 @@ To Use the app. [Click here](https://ai-schema-extractor-by-sanjidhossain.stream
     ```bash
     pip install -r requirements.txt
     ```
-3. Set your Anthropic API key as an environment variable:
-    ```bash
-    export ANTHROPIC_API_KEY=your_api_key
-    ```
 
 ## Usage
 
@@ -36,7 +32,8 @@ To Use the app. [Click here](https://ai-schema-extractor-by-sanjidhossain.stream
     ```
 2. Open the application in your web browser at `http://localhost:8501`.
 3. Enter the website URL and schemas you want to extract.
-4. Click the "Extract Data" button to extract the data.
+4. Enter your ANTHROPIC_API_KEY(Claude AI) which you can get from [their website](https://www.anthropic.com/)
+5. Click the "Extract Data" button to extract the data.
 
 ## Contributing
 
