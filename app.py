@@ -6,24 +6,16 @@ import time
 from fake_useragent import UserAgent
 import requests_html as rq
 import anthropic
-from dotenv import load_dotenv
-from dotenv import dotenv_values
-
-# Load environment variables from key.env
-# config = dotenv_values(".env")
-load_dotenv()
-
-# Get the Anthropic API key from environment variables
-anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
-
-# Initialize the Anthropic client with the API key
-client = anthropic.Anthropic(api_key=anthropic_api_key)
 
 def main():
     st.title("Web Data Extractor with LLM")
 
     url = st.text_input("Enter Website URL:")
     schemas = st.text_input("Enter Schemas (comma-separated):").split(",")
+    anthropic_api_key = st.text_input("Enter your Anthropic API Key:", type="password")
+
+    # Initialize the Anthropic client with the API key
+    client = anthropic.Anthropic(api_key=anthropic_api_key)
 
     if st.button("Extract Data"):
         try:
@@ -42,13 +34,13 @@ def main():
             with open('save_texts/text_content.txt', 'w+', encoding='utf-8') as f:
                 f.write(text_content)
 
-            parsed_data = extract_data_with_llm(text_content, schemas)
+            parsed_data = extract_data_with_llm(text_content, schemas, client)
             st.success("Data Extracted!")
             st.json(parsed_data)
         except Exception as e:
             st.error(f"Error extracting data: {e}")
 
-def extract_data_with_llm(text_content, schemas):
+def extract_data_with_llm(text_content, schemas, client):
     parsed_data = {}
 
     for schema in schemas:
