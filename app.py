@@ -4,15 +4,18 @@ import requests
 from bs4 import BeautifulSoup
 import time
 from fake_useragent import UserAgent
-#from transformers import pipeline
 import requests_html as rq
 import anthropic
+from dotenv import load_dotenv
 
-# Set your Anthropic API key
-os.environ["ANTHROPIC_API_KEY"] = "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"
+# Load environment variables from key.env
+load_dotenv("key.env")
+
+# Get the Anthropic API key from environment variables
+anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
 
 # Initialize the Anthropic client with the API key
-client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+client = anthropic.Anthropic(api_key=anthropic_api_key)
 
 def main():
     st.title("Web Data Extractor with LLM")
